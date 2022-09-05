@@ -1,0 +1,13 @@
+--- #Target, task and handler playbook together
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+   - name: install httpd on linux
+     action: yum name=httpd state=installed
+     notify: restart HTTPD
+  handlers:
+   - name: restart HTTPD
+     action: service name=httpd state=restarted
+

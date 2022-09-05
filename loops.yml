@@ -1,0 +1,15 @@
+--- #Loops Playbook
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: add list of users in my demo nodes
+      user: name='{{item}}' state=present
+      with_items:
+        - Ali
+        - Zeeshan
+        - Arslan
+        - Sohaib
+        - Faizan
+

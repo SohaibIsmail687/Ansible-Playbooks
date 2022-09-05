@@ -1,0 +1,10 @@
+--- #Variable file
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  vars:
+    pkgname: httpd
+  tasks:
+    - name: install httpd on linux
+      action: yum name='{{pkgname}}' state=installed

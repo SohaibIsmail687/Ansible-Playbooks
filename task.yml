@@ -1,0 +1,8 @@
+--- #Target and task playbook together
+- hosts: demo
+  user: ansible
+  become: yes
+  connection: ssh
+  tasks:
+    - name: install HTTPD on centos 7
+      action: yum name=httpd state=installed
